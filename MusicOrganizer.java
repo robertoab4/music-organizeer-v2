@@ -90,6 +90,7 @@ public class MusicOrganizer
         int position = 0;
         for (String filename : files){
             System.out.println(position +". " + filename);
+            System.out.println();
             position++;
         }
     }
@@ -98,7 +99,14 @@ public class MusicOrganizer
         for (String filename : files){
             if(filename.contains(searchString)){
                 System.out.println(filename);
+                System.out.println();
+            }
+            if(filename.contains(searchString) == false){
+                System.out.println("El texto introducido no se encuentra en la lista");
+                System.out.println();
+                break;
             }
         }
+        
     }
 }
