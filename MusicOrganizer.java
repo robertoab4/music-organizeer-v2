@@ -96,17 +96,28 @@ public class MusicOrganizer
     }
     
     public void listMatching(String searchString){
+        boolean xXx = true;
         for (String filename : files){
             if(filename.contains(searchString)){
                 System.out.println(filename);
-                System.out.println();
+                System.out.println();                
             }
-            if(filename.contains(searchString) == false){
+            else{
+                xXx = false;
+            }             
+        }
+        if(xXx == false){
                 System.out.println("El texto introducido no se encuentra en la lista");
-                System.out.println();
-                break;
+                System.out.println();               
+            }
+        
+    }
+    
+    public void playSamplesArtist(String searchString){
+        for (String filename : files){
+            if(filename.contains(searchString)){
+                player.playSample(filename);
             }
         }
-        
     }
 }
