@@ -96,17 +96,15 @@ public class MusicOrganizer
     }
     
     public void listMatching(String searchString){
-        boolean xXx = true;
+        boolean coincidence = false;
         for (String filename : files){
             if(filename.contains(searchString)){
                 System.out.println(filename);
-                System.out.println();                
-            }
-            else{
-                xXx = false;
-            }             
+                System.out.println();
+                coincidence = true;
+            }                        
         }
-        if(xXx == false){
+        if(coincidence == false){
                 System.out.println("El texto introducido no se encuentra en la lista");
                 System.out.println();               
             }
