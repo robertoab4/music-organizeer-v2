@@ -85,7 +85,7 @@ public class MusicOrganizer
     
     /**
      * List all files in the collection
-     */
+     
     public void listAllFiles(){
         int position = 0;
         for (String filename : files){
@@ -93,6 +93,18 @@ public class MusicOrganizer
             System.out.println();
             position++;
         }
+    }
+    */
+   
+    public void listAllFiles(){
+        int index = 0;
+        while (index < files.size()){
+            String filename = files.get(index);
+            System.out.println(filename);
+            System.out.println();
+            index++;           
+        }
+        
     }
     
     public void listMatching(String searchString){
@@ -118,4 +130,14 @@ public class MusicOrganizer
             }
         }
     }
+    
+    /* NO SE PUEDEN BORRAR ELMENTOS CON UN BUCLE FOR EACH
+     * public void deleteSongsWithText(String deleteThisSongs){
+        for (String filename : files){
+            if(filename.contains(deleteThisSongs)){
+                files.remove(filename);
+            }
+        }
+    }
+    */
 }
