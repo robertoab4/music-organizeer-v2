@@ -153,7 +153,7 @@ public class MusicOrganizer
         int index = 0;
         boolean coincidence = false;
         int tamano = files.size();
-        while (index < tamaño && !coincidence){
+        while (index < tamano && !coincidence){
             String esEstaCancion = files.get(index);
             if (esEstaCancion.contains(searchString)){
                 coincidence = true;   
