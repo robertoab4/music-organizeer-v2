@@ -13,7 +13,7 @@ public class MusicOrganizer
     private ArrayList<String> files;
     // A player for the music files.
     private MusicPlayer player;
-        
+
     /** 
      * Create a MusicOrganizer
      */
@@ -22,7 +22,7 @@ public class MusicOrganizer
         files = new ArrayList<String>();
         player = new MusicPlayer();
     }
-    
+
     /**
      * Add a file to the collection.
      * @param filename The file to be added.
@@ -31,7 +31,7 @@ public class MusicOrganizer
     {
         files.add(filename);
     }
-    
+
     /**
      * Return the number of files in the collection.
      * @return The number of files in the collection.
@@ -40,7 +40,7 @@ public class MusicOrganizer
     {
         return files.size();
     }
-    
+
     /**
      * List a file from the collection.
      * @param index The index of the file to be listed.
@@ -52,7 +52,7 @@ public class MusicOrganizer
             System.out.println(filename);
         }
     }
-    
+
     /**
      * Remove a file from the collection.
      * @param index The index of the file to be removed.
@@ -82,20 +82,20 @@ public class MusicOrganizer
     {
         player.stop();
     }
-    
+
     /**
      * List all files in the collection
-     
+
     public void listAllFiles(){
-        int position = 0;
-        for (String filename : files){
-            System.out.println(position +". " + filename);
-            System.out.println();
-            position++;
-        }
+    int position = 0;
+    for (String filename : files){
+    System.out.println(position +". " + filename);
+    System.out.println();
+    position++;
     }
-    */
-   
+    }
+     */
+
     public void listAllFiles(){
         int index = 0;
         while (index < files.size()){
@@ -104,9 +104,9 @@ public class MusicOrganizer
             System.out.println();
             index++;           
         }
-        
+
     }
-    
+
     public void listMatching(String searchString){
         boolean coincidence = false;
         for (String filename : files){
@@ -117,12 +117,12 @@ public class MusicOrganizer
             }                        
         }
         if(coincidence == false){
-                System.out.println("El texto introducido no se encuentra en la lista");
-                System.out.println();               
-            }
-        
+            System.out.println("El texto introducido no se encuentra en la lista");
+            System.out.println();               
+        }
+
     }
-    
+
     public void playSamplesArtist(String searchString){
         for (String filename : files){
             if(filename.contains(searchString)){
@@ -130,17 +130,17 @@ public class MusicOrganizer
             }
         }
     }
-    
+
     /* NO SE PUEDEN BORRAR ELMENTOS CON UN BUCLE FOR EACH
      * public void deleteSongsWithText(String deleteThisSongs){
-        for (String filename : files){
-            if(filename.contains(deleteThisSongs)){
-                files.remove(filename);
-            }
-        }
+    for (String filename : files){
+    if(filename.contains(deleteThisSongs)){
+    files.remove(filename);
     }
-    */
-   
+    }
+    }
+     */
+
     /**
      * Localiza el índice del primer archivo que se corresponde con
      * la cadena de búsqueda indicada .
@@ -148,10 +148,12 @@ public class MusicOrganizer
      * @return El índice de la primera aparición o -1 si
      * no se encuentra ninguna correspondencia
      */
-    /*public int findFirst(String searchString){
+    // Metodo findFirst usando todas las buenas practicas
+    public int findFirst(String searchString){
         int index = 0;
-        boolean coincidence = false;        
-        while ((index < files.size())&&(!coincidence)){
+        boolean coincidence = false;
+        int tamano = files.size();
+        while (index < tamaño && !coincidence){
             String esEstaCancion = files.get(index);
             if (esEstaCancion.contains(searchString)){
                 coincidence = true;   
@@ -162,23 +164,25 @@ public class MusicOrganizer
             index = -1;
         }
         return index;
-    }*/
-    
-    public int findFirst(String searchString){
-        int index = 0; 
-        int numeroLista = 0;
-        String esEstaCancion = "";
-        while (index < files.size()){
-            esEstaCancion = files.get(index);
-            if (esEstaCancion.contains(searchString)){                
-                numeroLista = index;
-                index = files.size() +1;
-            }                        
-            index++;
-        }    
-        if (!esEstaCancion.contains(searchString)){
-            numeroLista = -1;
-        }
-        return numeroLista;
     }
+
+    /*Metodo findFirst usando la mala práctica "2"
+     * 
+     * public int findFirst(String searchString){
+    int index = 0; 
+    int numeroLista = 0;
+    String esEstaCancion = "";
+    while (index < files.size()){
+    esEstaCancion = files.get(index);
+    if (esEstaCancion.contains(searchString)){                
+    numeroLista = index;
+    index = files.size() +1;
+    }                        
+    index++;
+    }    
+    if (!esEstaCancion.contains(searchString)){
+    numeroLista = -1;
+    }
+    return numeroLista;
+    }*/
 }
