@@ -148,7 +148,7 @@ public class MusicOrganizer
      * @return El índice de la primera aparición o -1 si
      * no se encuentra ninguna correspondencia
      */
-    public int findFirst(String searchString){
+    /*public int findFirst(String searchString){
         int index = 0;
         boolean coincidence = false;        
         while ((index < files.size())&&(!coincidence)){
@@ -162,5 +162,23 @@ public class MusicOrganizer
             index = -1;
         }
         return index;
+    }*/
+    
+    public int findFirst(String searchString){
+        int index = 0; 
+        int numeroLista = 0;
+        String esEstaCancion = "";
+        while (index < files.size()){
+            esEstaCancion = files.get(index);
+            if (esEstaCancion.contains(searchString)){                
+                numeroLista = index;
+                index = files.size() +1;
+            }                        
+            index++;
+        }    
+        if (!esEstaCancion.contains(searchString)){
+            numeroLista = -1;
+        }
+        return numeroLista;
     }
 }
