@@ -14,7 +14,7 @@ public class MusicOrganizer
     // A player for the music files.
     private MusicPlayer player;
         
-    /**
+    /** 
      * Create a MusicOrganizer
      */
     public MusicOrganizer()
@@ -140,4 +140,27 @@ public class MusicOrganizer
         }
     }
     */
+   
+    /**
+     * Localiza el índice del primer archivo que se corresponde con
+     * la cadena de búsqueda indicada .
+     * @param searchString La cadena que hay que buscar.
+     * @return El índice de la primera aparición o -1 si
+     * no se encuentra ninguna correspondencia
+     */
+    public int findFirst(String searchString){
+        int index = 0;
+        boolean coincidence = false;        
+        while ((index < files.size())&&(!coincidence)){
+            String esEstaCancion = files.get(index);
+            if (esEstaCancion.contains(searchString)){
+                coincidence = true;   
+            }                        
+            index++;
+        }    
+        if (coincidence == false){
+            index = -1;
+        }
+        return index;
+    }
 }
